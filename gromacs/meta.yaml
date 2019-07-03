@@ -1,0 +1,38 @@
+package:
+  name: gromacs
+  version: 2019.2_plumed_2.5.0
+
+build:
+  number: 0
+
+source:
+  url: http://ftp.gromacs.org/pub/gromacs/gromacs-2019.2.tar.gz
+  md5: 9978498d904ec81f50796b3cdaa9c5df
+
+requirements:
+  build:
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    - cmake
+    - plumed
+  host:
+    - openmp # [linux]
+    - libhwloc 1.*
+    - perl
+    - python >=2.7
+    - plumed
+  run:
+    - openmp # [linux]
+    - libhwloc 1.*
+    - plumed
+
+test:
+  commands:
+    - gmx -version
+    - gmx mdrun -h
+
+about:
+  home: http://www.gromacs.org/
+  license: GNU Lesser General Public License (LGPL)
+  summary: GROMACS is a versatile package to perform molecular dynamics.
+
