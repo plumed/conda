@@ -14,7 +14,7 @@ matrix:
     env: CONDA=gromacs
 install:
   - export CONDA_HOME=/var/tmp/miniconda
-  - export PATH="$CONDA_HOME:$PATH"
+  - export PATH="$CONDA_HOME/bin:$PATH"
   - ./run-conda-install.sh
 script:
   - ./run-conda-build.sh $CONDA
