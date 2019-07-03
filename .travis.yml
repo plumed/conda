@@ -1,0 +1,22 @@
+language: cpp
+matrix:
+  include:
+# linux conda package
+  - name: GROMACS on Linux
+    os: linux
+    dist: trusty
+    sudo: required
+    env: CONDA=gromacs
+# osx conda package
+  - name: GROMACS on MacOS
+    os: osx
+    osx_image: xcode8.3
+    env: CONDA=gromacs
+install:
+  - export CONDA_HOME=/var/tmp/miniconda
+  - export PATH="$CONDA_HOME:$PATH"
+  - ./run-conda-install.sh
+script:
+  - ./run-conda-build.sh $CONDA
+after_success:
+  - ./run-conda-upload.sh $CONDA
