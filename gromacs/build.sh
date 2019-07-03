@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 plumed patch -e gromacs-2019.2
 mkdir build
 cd build
