@@ -11,14 +11,18 @@ bash ./miniconda.sh -b -f -p /path/to/conda
 export PATH="/path/to/conda/bin:$PATH"
 ````
 
-## Install plumed
+## Install PLUMED
 ````
 conda install -c conda-forge plumed
 ````
 
-## Install gromacs
+## Install GROMACS
 ````
 conda install -c conda-forge -c plumed/label/lugano gromacs
 ````
 
+## Install LAMMPS
+````
+conda install -c conda-forge -c plumed/label/lugano lammps
+````
 
