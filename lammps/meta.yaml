@@ -15,12 +15,14 @@ requirements:
     - {{ compiler('cxx') }}
     - cmake
     - make
-    - plumed =2.5.1
   host:
     - fftw
+    - libpng
+    - libjpeg-turbo
     - zlib
   run:
     - fftw
+    - plumed >=2
 
 test:
   commands:
@@ -30,7 +32,6 @@ about:
   home: http://lammps.sandia.gov
   license: GPL-2.0
   license_family: GPL
-  license_file: '{{ environ["RECIPE_DIR"] }}/LICENSE'
   summary: 'LAMMPS stands for Large-scale Atomic/Molecular Massively Parallel Simulator.'
 
   description: |
