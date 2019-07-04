@@ -1,14 +1,21 @@
 language: cpp
 matrix:
   include:
-# linux conda package
   - name: GROMACS on Linux
     os: linux
     dist: trusty
     sudo: required
     env: PACKAGE=gromacs
-# osx conda package
   - name: GROMACS on MacOS
+    os: osx
+    osx_image: xcode6.4
+    env: PACKAGE=gromacs
+  - name: LAMMPS on Linux
+    os: linux
+    dist: trusty
+    sudo: required
+    env: PACKAGE=gromacs
+  - name: LAMMPS on MacOS
     os: osx
     osx_image: xcode6.4
     env: PACKAGE=gromacs
