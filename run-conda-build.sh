@@ -1,5 +1,6 @@
 #!/bin/bash
-export CPU_COUNT=4
+
+set -e
 
 conda-build -c conda-forge $1
 
