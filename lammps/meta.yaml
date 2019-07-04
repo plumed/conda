@@ -1,0 +1,44 @@
+package:
+  name: lammps
+  version: 2019.6.5
+
+build:
+  number: 0
+
+source:
+  url: https://github.com/lammps/lammps/archive/stable_5Jun2019.tar.gz
+  md5: 1762e3fe956fd6243345ffca5e1cad2f
+
+requirements:
+  build:
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    - cmake
+    - make
+    - plumed =2.5.1
+  host:
+    - fftw
+    - zlib
+  run:
+    - fftw
+
+test:
+  commands:
+    - lmp_serial -help
+
+about:
+  home: http://lammps.sandia.gov
+  license: GPL-2.0
+  license_family: GPL
+  license_file: '{{ environ["RECIPE_DIR"] }}/LICENSE'
+  summary: 'LAMMPS stands for Large-scale Atomic/Molecular Massively Parallel Simulator.'
+
+  description: |
+    LAMMPS is a classical molecular dynamics simulation code designed to
+    run efficiently on parallel computers.  It was developed at Sandia
+    National Laboratories, a US Department of Energy facility, with
+    funding from the DOE.  It is an open-source code, distributed freely
+    under the terms of the GNU Public License (GPL).
+  doc_url: http://lammps.sandia.gov/doc/Manual.html
+  dev_url: https://github.com/lammps/lammps
+
