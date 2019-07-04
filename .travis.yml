@@ -6,17 +6,19 @@ matrix:
     os: linux
     dist: trusty
     sudo: required
-    env: CONDA=gromacs
+    env: PACKAGE=gromacs
 # osx conda package
   - name: GROMACS on MacOS
     os: osx
     osx_image: xcode8.3
-    env: CONDA=gromacs
+    env: PACKAGE=gromacs
 install:
   - export CONDA_HOME=/var/tmp/miniconda
   - export PATH="$CONDA_HOME/bin:$PATH"
+  - export CPU_COUNT=4
+  - export CONDA_LABEL=lugano
   - ./run-conda-install.sh
 script:
-  - ./run-conda-build.sh $CONDA
+  - ./run-conda-build.sh $PACKAGE
 after_success:
-  - ./run-conda-upload.sh $CONDA
+  - ./run-conda-upload.sh $PACKAGE
