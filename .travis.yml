@@ -21,7 +21,7 @@ matrix:
     env: PACKAGE=lammps
 install:
   - ls -l "$(xcode-select --print-path)"
-  - ls -l "$(xcode-select --print-path)/Prms/MacOSX.platform/Developer/SDKs"
+  - xcrun --show-sdk-path
   - export CONDA_HOME=/var/tmp/miniconda
   - export PATH="$CONDA_HOME/bin:$PATH"
   - export CPU_COUNT=4
