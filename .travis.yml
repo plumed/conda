@@ -20,8 +20,6 @@ matrix:
     osx_image: xcode7.3
     env: PACKAGE=lammps
 install:
-  - ls -l "$(xcode-select --print-path)"
-  - xcrun --show-sdk-path
   - export CONDA_HOME=/var/tmp/miniconda
   - export PATH="$CONDA_HOME/bin:$PATH"
   - export CPU_COUNT=4
