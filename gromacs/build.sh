@@ -3,6 +3,8 @@ set -e
 
 find /Applications/Xcode.app -name MacOSX.sdk
 
+exit 1
+
 plumed-patch -p --runtime -e gromacs-2018.6
 mkdir build
 cd build
