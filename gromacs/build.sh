@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-find /Applications/Xcode.app -name MacOKSX.sdk
+find /Applications/Xcode.app -name MacOSX.sdk
 
 plumed-patch -p --runtime -e gromacs-2018.6
 mkdir build
