@@ -6,7 +6,7 @@ opt=""
 if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
   #opt="-DCMAKE_OSX_SYSROOT=$(xcrun --show-sdk-path)"
   opt="-DCMAKE_OSX_SYSROOT=${CONDA_BUILD_SYSROOT}"
-  export MACOSX_DEPLOYMENT_TARGET=10.11
+  export CMAKE_OSX_DEPLOYMENT_TARGET=10.11
 fi
 
 plumed-patch -p --runtime -e gromacs-2018.6
