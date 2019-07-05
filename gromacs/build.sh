@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-plumed-patch -p --runtime -e gromacs-2018.6 --root=$PREFIX/lib/plumed
+plumed-patch -p --runtime -e gromacs-2018.6
 mkdir build
 cd build
 cmake .. \
