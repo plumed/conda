@@ -13,6 +13,7 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - binutils
     - cmake
     - plumed =2.5.1
     - python

@@ -1,9 +1,8 @@
 #!/bin/bash
 set -e
-plumed-patch -p --runtime -e gromacs-2018.6
+plumed-patch -p --runtime -e gromacs-2018.6 --root $PREFIX/lib/plumed
 mkdir build
 cd build
-# GMX_LIB_INSTALL_DIR=lib - make sure library is installed in lib and not lib64
 cmake .. \
   -DGMX_DEFAULT_SUFFIX=ON \
   -DGMX_MPI=OFF \
