@@ -14,11 +14,11 @@ matrix:
     os: linux
     dist: trusty
     sudo: required
-    env: PACKAGE=gromacs
+    env: PACKAGE=lammps
   - name: LAMMPS on MacOS
     os: osx
     osx_image: xcode6.4
-    env: PACKAGE=gromacs
+    env: PACKAGE=lammps
 install:
   - export CONDA_HOME=/var/tmp/miniconda
   - export PATH="$CONDA_HOME/bin:$PATH"
