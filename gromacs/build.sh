@@ -4,7 +4,8 @@ set -e
 opt=""
 
 if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-  opt="-DCMAKE_OSX_SYSROOT=$(xcrun --show-sdk-path)"
+  #opt="-DCMAKE_OSX_SYSROOT=$(xcrun --show-sdk-path)"
+  opt="-DCMAKE_OSX_SYSROOT=${CONDA_BUILD_SYSROOT}"
   export MACOSX_DEPLOYMENT_TARGET=10.11
 fi
 
