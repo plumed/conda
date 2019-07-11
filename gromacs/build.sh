@@ -21,5 +21,5 @@ cmake .. \
   -DGMX_SIMD=SSE2 \
   -DCMAKE_PREFIX_PATH=$PREFIX \
   -DCMAKE_INSTALL_PREFIX=$PREFIX
-make -j $CPU_COUNT
+make VERBOSE=1 -j $CPU_COUNT
 make install
