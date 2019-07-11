@@ -20,6 +20,8 @@ requirements:
   host:
     - fftw
     - libhwloc 1.*
+    - libblas
+    - liblapack
   run:
     - fftw
     - libhwloc 1.*
