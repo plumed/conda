@@ -3,10 +3,10 @@ set -e
 
 opt=""
 
-# if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
   #opt="-DCMAKE_OSX_SYSROOT=$(xcrun --show-sdk-path)"
-  # opt="-DCMAKE_OSX_SYSROOT=${CONDA_BUILD_SYSROOT} -DCMAKE_OSX_DEPLOYMENT_TARGET=10.11"
-# fi
+  opt="-DCMAKE_OSX_SYSROOT=${CONDA_BUILD_SYSROOT} -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9"
+fi
 
 plumed-patch -p --runtime -e gromacs-2018.6
 mkdir build
