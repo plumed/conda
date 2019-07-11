@@ -8,6 +8,8 @@ if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
   opt="-DCMAKE_OSX_SYSROOT=${CONDA_BUILD_SYSROOT} -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9"
 fi
 
+export LD=$CXX
+
 plumed-patch -p --runtime -e gromacs-2018.6
 mkdir build
 cd build
