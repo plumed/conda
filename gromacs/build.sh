@@ -4,7 +4,7 @@ set -e
 opt=""
 
 
-if [[ $(uname) == Darwin" ]]; then
+if [[ $(uname) == Darwin ]]; then
   opt="-DCMAKE_OSX_SYSROOT=${CONDA_BUILD_SYSROOT} -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9"
 fi
 
