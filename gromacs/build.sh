@@ -5,8 +5,10 @@ opt=""
 
 if [[ $(uname) == Darwin ]]; then
   opt="-DCMAKE_OSX_SYSROOT=${CONDA_BUILD_SYSROOT} -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9 -DGMX_BLAS_USER=$PREFIX/lib/libblas.dylib -DGMX_LAPACK_USER=$PREFIX/lib/liblapack.dylib"
+  LIBS="$LIBS $PREFIX/lib/libhwloc.dylib"
 else
   opt="-DGMX_BLAS_USER=$PREFIX/lib/libblas.so -DGMX_LAPACK_USER=$PREFIX/lib/liblapack.so"
+  LIBS="$LIBS $PREFIX/lib/libhwloc.so"
 fi
 
 echo "CHECK ME $opt"
