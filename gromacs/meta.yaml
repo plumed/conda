@@ -15,7 +15,6 @@ requirements:
     - {{ compiler('cxx') }}
     - binutils
     - cmake
-    - plumed
     - python
   host:
     - fftw
