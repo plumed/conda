@@ -13,6 +13,9 @@ fi
 
 echo "CHECK ME $opt"
 
+ls -ltr $PREFIX
+ls -ltr $PREFIX/bin
+
 $PREFIX/bin/plumed-patch -p --runtime -e gromacs-2018.6
 mkdir build
 cd build
