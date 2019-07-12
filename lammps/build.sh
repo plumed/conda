@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+cat src/USER-PLUMED/fix_plumed.cpp | grep -v setMPIComm > src/USER-PLUMED/fix_plumed.cpp.fix
+mv src/USER-PLUMED/fix_plumed.cpp.fix src/USER-PLUMED/fix_plumed.cpp
+
 cd src
 make lib-plumed args="-p $PREFIX -m runtime"
 make yes-kspace
