@@ -15,13 +15,14 @@ requirements:
     - {{ compiler('cxx') }}
     - binutils
     - cmake
-    - plumed =2.5.1
+    - plumed
     - python
   host:
     - fftw
     - libhwloc 1.*
     - libblas
     - liblapack
+    - plumed
   run:
     - fftw
     - libhwloc 1.*
