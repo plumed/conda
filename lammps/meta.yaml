@@ -15,7 +15,6 @@ requirements:
     - {{ compiler('cxx') }}
     - binutils
     - make
-    - plumed
   host:
     - fftw
     - libpng
