@@ -14,10 +14,12 @@ elif [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
     tar -xf ./MacOSX10.9.sdk.tar.xz
     rm MacOSX10.9.sdk.tar.xz
     cd $PREV
+    ls -ltr /var/tmp/MacOSX-SDKs
 else
     echo "Unsupported system $TRAVIS_OS_NAME"
     exit 1
 fi
+
 
 wget -c https://repo.continuum.io/miniconda/Miniconda3-latest-$csys-x86_64.sh -O /tmp/miniconda.sh
 bash /tmp/miniconda.sh -b -f -p $CONDA_HOME
