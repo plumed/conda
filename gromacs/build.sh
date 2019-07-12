@@ -3,11 +3,10 @@ set -e
 
 opt=""
 
-
 if [[ $(uname) == Darwin ]]; then
-  opt="-DCMAKE_OSX_SYSROOT=${CONDA_BUILD_SYSROOT} -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9 -DGMX_BLAS_USER=$PREFIX/lib/libblas.dylib"
+  opt="-DCMAKE_OSX_SYSROOT=${CONDA_BUILD_SYSROOT} -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9 -DGMX_BLAS_USER=$PREFIX/lib/libblas.dylib -DGMX_LAPACK_USER=$PREFIX/lib/liblapack.dylib"
 else
-  opt="-DGMX_BLAS_USER=$PREFIX/lib/libblas.so"
+  opt="-DGMX_BLAS_USER=$PREFIX/lib/libblas.so -DGMX_LAPACK_USER=$PREFIX/lib/liblapack.so"
 fi
 
 echo "CHECK ME $opt"
