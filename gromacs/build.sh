@@ -5,7 +5,9 @@ opt=""
 
 
 if [[ $(uname) == Darwin ]]; then
-  opt="-DCMAKE_OSX_SYSROOT=${CONDA_BUILD_SYSROOT} -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9"
+  opt="-DCMAKE_OSX_SYSROOT=${CONDA_BUILD_SYSROOT} -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9 -DGMX_BLAS_USER=$PREFIX/lib/libblas.dylib"
+else
+  opt="-DGMX_BLAS_USER=$PREFIX/lib/libblas.so"
 fi
 
 echo "CHECK ME $opt"
