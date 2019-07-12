@@ -1,10 +1,6 @@
 #!/bin/bash
 set -e
 
-echo before
-sed "s/buildflag = args.build/buildflag = args.build is not None/" lib/plumed/Install.py > lib/plumed/Install.py.tmp
-mv lib/plumed/Install.py.tmp lib/plumed/Install.py
-echo after
 cd src
 make lib-plumed args="-p $PREFIX -m runtime"
 make yes-kspace
