@@ -15,9 +15,7 @@ if [[ $(uname) == Darwin ]]; then
   mv lib/plumed/Makefile.lammps.runtime.fix lib/plumed/Makefile.lammps.runtime
 # CMAKE_OSX_SYSROOT and CMAKE_OSX_DEPLOYMENT_TARGET should be set for cmake to work correctly
   opt="-DCMAKE_OSX_SYSROOT=${CONDA_BUILD_SYSROOT} -DCMAKE_OSX_DEPLOYMENT_TARGET=${MACOSX_DEPLOYMENT_TARGET}"
-  LIBS="$LIBS $PREFIX/lib/liblapack.dylib $PREFIX/lib/libblas.dylib"
 else
-  LIBS="$LIBS $PREFIX/lib/liblapack.so $PREFIX/lib/libblas.so"
 fi
 
 
