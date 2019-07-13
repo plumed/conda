@@ -4,14 +4,18 @@ set -e
 opt=""
 
 if [[ $(uname) == Darwin ]]; then
-  opt="-DCMAKE_OSX_SYSROOT=${CONDA_BUILD_SYSROOT} -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9 -DGMX_BLAS_USER=$PREFIX/lib/libblas.dylib -DGMX_LAPACK_USER=$PREFIX/lib/liblapack.dylib"
+# CMAKE_OSX_SYSROOT and CMAKE_OSX_DEPLOYMENT_TARGET should be set for cmake to work correctly
+  opt="-DCMAKE_OSX_SYSROOT=${CONDA_BUILD_SYSROOT} -DCMAKE_OSX_DEPLOYMENT_TARGET=${MACOSX_DEPLOYMENT_TARGET}"
+# lapack and blas should be set explicitly otherwise GROMACS might pick a static version of libopenblas
+  opt="$opt -DGMX_BLAS_USER=$PREFIX/lib/libblas.dylib -DGMX_LAPACK_USER=$PREFIX/lib/liblapack.dylib"
   LIBS="$LIBS $PREFIX/lib/libhwloc.dylib"
 else
+# lapack and blas should be set explicitly otherwise GROMACS might pick a static version of libopenblas
   opt="-DGMX_BLAS_USER=$PREFIX/lib/libblas.so -DGMX_LAPACK_USER=$PREFIX/lib/liblapack.so"
   LIBS="$LIBS $PREFIX/lib/libhwloc.so"
 fi
 
-$PREFIX/bin/plumed-patch -p --runtime -e gromacs-2018.6
+$PREFIX/bin/plumed-patch -p --runtime -e gromacs-$PKG_VERSION
 mkdir build
 cd build
 cmake .. \
