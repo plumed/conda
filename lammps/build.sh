@@ -13,9 +13,7 @@ if [[ $(uname) == Darwin ]]; then
   mv cmake/CMakeLists.txt.fix cmake/CMakeLists.txt
   cat lib/plumed/Makefile.lammps.runtime | sed "s/libplumedKernel.so/libplumedKernel.dylib/" > lib/plumed/Makefile.lammps.runtime.fix
   mv lib/plumed/Makefile.lammps.runtime.fix lib/plumed/Makefile.lammps.runtime
-# CMAKE_OSX_SYSROOT and CMAKE_OSX_DEPLOYMENT_TARGET should be set for cmake to work correctly
-  opt="-DCMAKE_OSX_SYSROOT=${CONDA_BUILD_SYSROOT} -DCMAKE_OSX_DEPLOYMENT_TARGET=${MACOSX_DEPLOYMENT_TARGET}"
-else
+  export SDKROOT="${CONDA_BUILD_SYSROOT}"
 fi
 
 

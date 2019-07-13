@@ -4,8 +4,7 @@ set -e
 opt=""
 
 if [[ $(uname) == Darwin ]]; then
-# CMAKE_OSX_SYSROOT and CMAKE_OSX_DEPLOYMENT_TARGET should be set for cmake to work correctly
-  opt="-DCMAKE_OSX_SYSROOT=${CONDA_BUILD_SYSROOT} -DCMAKE_OSX_DEPLOYMENT_TARGET=${MACOSX_DEPLOYMENT_TARGET}"
+  export SDKROOT="${CONDA_BUILD_SYSROOT}"
 # lapack and blas should be set explicitly otherwise GROMACS might pick a static version of libopenblas
   opt="$opt -DGMX_BLAS_USER=$PREFIX/lib/libblas.dylib -DGMX_LAPACK_USER=$PREFIX/lib/liblapack.dylib"
   LIBS="$LIBS $PREFIX/lib/libhwloc.dylib"
