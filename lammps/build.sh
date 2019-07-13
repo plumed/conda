@@ -31,7 +31,7 @@ cmake -DBUILD_MPI=no \
       $opt \
       ../cmake
 make VERBOSE=1
-cp lmp_serial $PREFIX/bin/lmp_serial
+cp lmp $PREFIX/bin/lmp
 
 # cd src
 # make yes-kspace
