@@ -32,7 +32,7 @@ cmake -DBUILD_MPI=no \
       -DPLUMED_MODE=runtime \
       $opt \
       ../cmake
-make VERBOSE=1 -j${CPU_COUNT}
+make VERBOSE=1
 cp lmp_serial $PREFIX/bin/lmp_serial
 
 # cd src
@@ -41,5 +41,5 @@ cp lmp_serial $PREFIX/bin/lmp_serial
 # make yes-rigid
 # make yes-manybody
 # make yes-user-plumed
-# make -j${CPU_COUNT} serial
+# make serial
 # cp lmp_serial $PREFIX/bin/lmp_serial

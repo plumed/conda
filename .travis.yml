@@ -9,7 +9,7 @@ env:
 install:
   - export CONDA_HOME=/var/tmp/miniconda
   - export PATH=$CONDA_HOME/bin:$PATH
-  - export CPU_COUNT=4
+  - export MAKEFLAGS=-j4
   - export CONDA_LABEL=lugano
 # the conda channel:
   - export CONDA_USER=plumed 
