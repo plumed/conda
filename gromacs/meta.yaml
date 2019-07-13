@@ -6,7 +6,7 @@ build:
   number: 0
 
 source:
-  url: http://ftp.gromacs.org/pub/gromacs/gromacs-2018.6.tar.gz
+  url: http://ftp.gromacs.org/pub/gromacs/gromacs-{{ version }}.tar.gz
   md5: 997f2b8108197780d61b23b5eb05644a
 
 requirements:
@@ -15,6 +15,7 @@ requirements:
     - {{ compiler('cxx') }}
     - binutils
     - cmake
+    - llvm-openmp  # [osx]
     - python
   host:
     - fftw
@@ -25,6 +26,7 @@ requirements:
   run:
     - fftw
     - libhwloc 1.*
+    - llvm-openmp  # [osx]
     - plumed >=2
 
 test:
