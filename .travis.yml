@@ -8,13 +8,20 @@ env:
 
 install:
   - export CONDA_HOME=/var/tmp/miniconda
-  - export PATH="$CONDA_HOME/bin:$PATH"
+  - export PATH=$CONDA_HOME/bin:$PATH
   - export CPU_COUNT=4
   - export CONDA_LABEL=lugano
+# the conda channel:
+  - export CONDA_USER=plumed 
+  - if [[ -n $TRAVIS_REPO_SLUG ]] ; then
+      CONDA_USER=${TRAVIS_REPO_SLUG%/*} ;
+    fi
   - ./run-conda-install.sh
 
 script:
-  - ./run-conda-build.sh $PACKAGE
+  - conda-build -c conda-forge $PACKAGE
 
 after_success:
-  - ./run-conda-upload.sh $PACKAGE
+  - if [[ -n $CONDA_UPLOAD_TOKEN ]]; then
+      anaconda -t $CONDA_UPLOAD_TOKEN upload -u $CONDA_USER -l $CONDA_LABEL $CONDA_HOME/conda-bld/$TRAVIS_OS_NAME-64/$PACKAGE*.tar.bz2 --force ;
+    fi
