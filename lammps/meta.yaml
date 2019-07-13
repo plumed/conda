@@ -29,7 +29,7 @@ requirements:
 
 test:
   commands:
-    - lmp_serial -help | grep plumed
+    - lmp -help | grep plumed
 
 about:
   home: http://lammps.sandia.gov
