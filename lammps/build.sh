@@ -29,6 +29,7 @@ cmake -DBUILD_MPI=no \
       -DPKG_MOLECULE=yes \
       -DPKG_RIGID=yes \
       -DPKG_USER-PLUMED=yes \
+      -DPLUMED_MODE=runtime \
       $opt \
       ../cmake
 make VERBOSE=1 -j${CPU_COUNT}
