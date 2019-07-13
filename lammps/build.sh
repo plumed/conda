@@ -15,9 +15,11 @@ if [[ $(uname) == Darwin ]]; then
   mv lib/plumed/Makefile.lammps.runtime.fix lib/plumed/Makefile.lammps.runtime
 # CMAKE_OSX_SYSROOT and CMAKE_OSX_DEPLOYMENT_TARGET should be set for cmake to work correctly
   opt="-DCMAKE_OSX_SYSROOT=${CONDA_BUILD_SYSROOT} -DCMAKE_OSX_DEPLOYMENT_TARGET=${MACOSX_DEPLOYMENT_TARGET}"
+  LIBS="$LIBS $PREFIX/lib/liblapack.dylib $PREFIX/lib/libblas.dylib"
+else
+  LIBS="$LIBS $PREFIX/lib/liblapack.so $PREFIX/lib/libblas.so"
 fi
 
-LIBS="$LIBS -llapack -lblas"
 
 make -C src lib-plumed args="-p $PREFIX -m runtime"
 
@@ -33,6 +35,7 @@ cmake -DBUILD_MPI=no \
       $opt \
       ../cmake
 make VERBOSE=1 -j${CPU_COUNT}
+cp lmp_serial $PREFIX/bin/lmp_serial
 
 # cd src
 # make yes-kspace
@@ -41,5 +44,4 @@ make VERBOSE=1 -j${CPU_COUNT}
 # make yes-manybody
 # make yes-user-plumed
 # make -j${CPU_COUNT} serial
-
-cp lmp_serial $PREFIX/bin/lmp_serial
+# cp lmp_serial $PREFIX/bin/lmp_serial
