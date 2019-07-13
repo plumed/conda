@@ -16,6 +16,7 @@ requirements:
     - binutils
     - sed
     - make
+    - cmake
   host:
     - fftw
     - libpng
