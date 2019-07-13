@@ -1,6 +1,8 @@
+{% set version = "2018.6" %}
+
 package:
   name: gromacs
-  version: 2018.6
+  version: {{ version }}
 
 build:
   number: 0
