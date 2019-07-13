@@ -22,6 +22,7 @@ requirements:
     - fftw
     - libpng
     - libjpeg-turbo
+    - llvm-openmp  # [osx]
     - plumed
     - zlib
   run:
