@@ -1,31 +1,20 @@
-language: cpp
-matrix:
-  include:
-  - name: GROMACS on Linux
-    os: linux
-    dist: trusty
-    sudo: required
-    env: PACKAGE=gromacs
-  - name: GROMACS on MacOS
-    os: osx
-    osx_image: xcode10.2
-    env: PACKAGE=gromacs
-  - name: LAMMPS on Linux
-    os: linux
-    dist: trusty
-    sudo: required
-    env: PACKAGE=lammps
-  - name: LAMMPS on MacOS
-    os: osx
-    osx_image: xcode10.2
-    env: PACKAGE=lammps
+os:
+  - linux
+  - osx
+
+env:
+  - PACKAGE=gromacs
+  - PACKAGE=lammps
+
 install:
   - export CONDA_HOME=/var/tmp/miniconda
   - export PATH="$CONDA_HOME/bin:$PATH"
   - export CPU_COUNT=4
   - export CONDA_LABEL=lugano
   - ./run-conda-install.sh
+
 script:
   - ./run-conda-build.sh $PACKAGE
+
 after_success:
   - ./run-conda-upload.sh $PACKAGE
