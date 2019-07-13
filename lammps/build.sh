@@ -13,6 +13,8 @@ if [[ $(uname) == Darwin ]]; then
   mv lib/plumed/Makefile.lammps.runtime.fix lib/plumed/Makefile.lammps.runtime
 fi
 
+LIBS="$LIBS -llapack -lblas"
+
 make -C src lib-plumed args="-p $PREFIX -m runtime"
 
 mkdir build
