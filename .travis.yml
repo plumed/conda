@@ -3,6 +3,7 @@ os:
   - osx
 
 env:
+  - PACKAGE=plumed
   - PACKAGE=gromacs
   - PACKAGE=lammps
 
