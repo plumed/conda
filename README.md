@@ -40,6 +40,8 @@ On OSX, the command above should install the following packages:
   zlib               conda-forge/osx-64::zlib-1.2.11-h01d97ff_1005
 ````
 
+Again, notice that the `plumed` package comes from `plumed/label/lugano`, whereas all the libraries come from `conda-forge`.
+
 ## Install GROMACS
 
 This command installs a special version of GROMACS 2018.6 pre-patched with PLUMED.
