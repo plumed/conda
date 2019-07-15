@@ -1,7 +1,8 @@
-# Conda packages for GROMACS and LAMMPS (WIP)
+# Conda packages for GROMACS and LAMMPS
 
 ## Install conda
 
+First you should install conda. In order to do so execute the commands below:
 
 ````
 wget -c https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
@@ -11,6 +12,19 @@ bash ./miniconda.sh -b -f -p /path/to/conda
 export PATH="/path/to/conda/bin:$PATH"
 source activate base
 ````
+
+Here `/path/to/conda` should be the path where you want to install conda. You can choose it in your home so that you will have write permission to it.
+
+You might want to use a separate environment just for the Lugano tutorial. You can do it using the following commands
+
+````
+conda create --name lugano-tutorials
+source activate lugano-tutorials
+````
+
+The second command should be repeated every time you open a new shell.
+In case you have already conda installed, by working in a separate environment you will make sure that there
+will not be interference between packages specifically needed for this tutorial and packages that you have already installed.
 
 ## Install PLUMED
 
