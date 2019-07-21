@@ -102,3 +102,13 @@ On OSX, the command above should install the following packages:
   libpng             conda-forge/osx-64::libpng-1.6.37-h2573ce8_0
 ````
 
+## Install other software that you will need
+
+Using conda you might also install other software that will be used during the workshop.
+You will likely need these python packages:
+
+````
+conda install -c conda-forge numpy
+conda install -c conda-forge scipy
+````
+
