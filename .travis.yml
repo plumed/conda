@@ -24,5 +24,5 @@ script:
 
 after_success:
   - if [[ -n $CONDA_UPLOAD_TOKEN ]]; then
-      anaconda -t $CONDA_UPLOAD_TOKEN upload -u $CONDA_USER -l $CONDA_LABEL $CONDA_HOME/conda-bld/$TRAVIS_OS_NAME-64/$PACKAGE*.tar.bz2 --force ;
+      anaconda -t $CONDA_UPLOAD_TOKEN upload -u $CONDA_USER -l $CONDA_LABEL $CONDA_PREFIX/conda-bld/$TRAVIS_OS_NAME-64/$PACKAGE*.tar.bz2 --force ;
     fi
