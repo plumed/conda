@@ -8,8 +8,8 @@ env:
   - PACKAGE=lammps
 
 install:
-  - export CONDA_HOME=/var/tmp/miniconda
-  - export PATH=$CONDA_HOME/bin:$PATH
+  - curl -LO https://raw.githubusercontent.com/GiovanniBussi/conda-ci/master/macports-ci
+  - source ./conda-ci install
   - export MAKEFLAGS=-j4
   - export CONDA_LABEL=lugano
 # the conda channel:
@@ -17,7 +17,6 @@ install:
   - if [[ -n $TRAVIS_REPO_SLUG ]] ; then
       CONDA_USER=${TRAVIS_REPO_SLUG%/*} ;
     fi
-  - ./run-conda-install.sh
 
 script:
   - conda-build -c conda-forge $PACKAGE
