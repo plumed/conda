@@ -82,7 +82,7 @@ on conda in the same environment, using the command above.
 conda install --strict-channel-priority -c plumed/label/munster -c conda-forge gromacs
 ````
 
-The `--strict-channel-priority` might be necessary in case your conda install is configured to download packages from `bioconda`. Indeed, `bioconda` contains a version of GROMACS that is **NOT** patched with PLUMED.
+The `--strict-channel-priority` might be necessary in case your conda install is configured to download packages from the `bioconda` channel. Indeed, `bioconda` contains a version of GROMACS that is **NOT** patched with PLUMED.
 
 On Linux, the command above should install the following packages:
 
@@ -94,7 +94,7 @@ On Linux, the command above should install the following packages:
   libxml2            conda-forge/linux-64::libxml2-2.9.10-hee79883_0
 ````
 
-The exact versions might be different.  Notice however that gromacs comes from the `plumed/label/munster` channel, whereas the required libraries come from `conda-forge`.
+The exact versions might be different.  Notice however that GROMACS comes from the `plumed/label/munster` channel, whereas the required libraries come from `conda-forge`. To be sure the installed GROMACS is patched with PLUMED, try the following shell command: `gmx mdrun -h 2> /dev/null | grep -q plumed && echo ok`. It should print `ok`.
 
 Also notice that in order to obtain good performances it is convenient to compile GROMACS on the machine you are running it. You can find out in the PLUMED documention how to patch GROMACS with PLUMED so as to be able to install it from source. For this tutorial, the conda precompiled binaries will be sufficient.
 
