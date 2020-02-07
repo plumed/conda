@@ -105,6 +105,6 @@ Using conda you might also install other software that will be used during the w
 You will likely need these python packages:
 
 ````
-conda install -c conda-forge numpy scipy jupyter matplotlib pandas
+conda install -c conda-forge numpy scipy jupyter matplotlib pandas mdanalysis
 ````
 
