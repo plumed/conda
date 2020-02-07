@@ -3,16 +3,14 @@ os:
   - osx
 
 env:
-  - PACKAGE=plumed
   - PACKAGE=gromacs
-  - PACKAGE=lammps
 
 install:
   - curl -LO https://raw.githubusercontent.com/GiovanniBussi/conda-ci/master/conda-ci
   - source ./conda-ci install
   - source conda-ci install-conda-build
   - export MAKEFLAGS=-j4
-  - export CONDA_LABEL=lugano
+  - export CONDA_LABEL=munster
 # the conda channel:
   - export CONDA_USER=plumed 
   - if [[ -n $TRAVIS_REPO_SLUG ]] ; then
