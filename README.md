@@ -15,7 +15,7 @@ source activate base
 
 Here `/path/to/conda` should be the path where you want to install conda. You can choose it in your home so that you will have write permission to it.
 
-You might want to use a separate environment just for the Lugano tutorial. You can do it using the following commands
+You might want to use a separate environment just for the Munster tutorial. You can do it using the following commands
 
 ````
 conda create --name munster-tutorials
