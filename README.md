@@ -96,7 +96,7 @@ On Linux, the command above should install the following packages:
 
 The exact versions might be different.  Notice however that GROMACS comes from the `plumed/label/munster` channel, whereas the required libraries come from `conda-forge`. To be sure the installed GROMACS is patched with PLUMED, try the following shell command: `gmx mdrun -h 2> /dev/null | grep -q plumed && echo ok`. It should print `ok`.
 
-Also notice that in order to obtain good performances it is convenient to compile GROMACS on the machine you are running it. You can find out in the PLUMED documention how to patch GROMACS with PLUMED so as to be able to install it from source. For this tutorial, the conda precompiled binaries will be sufficient.
+Also notice that in order to obtain good performances it is better to compile GROMACS from source on the machine you are running your simulations. You can find out in the PLUMED documention how to patch GROMACS with PLUMED so as to be able to install it from source. For this tutorial, the conda precompiled binaries will be sufficient.
 
 
 ## Install other software that you will need
