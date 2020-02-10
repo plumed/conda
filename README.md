@@ -61,7 +61,7 @@ On Linux, the command above should install the following packages:
   py-plumed          conda-forge/linux-64::py-plumed-2.6.0-py38he1b5a44_0
   python             conda-forge/linux-64::python-3.8.1-h357f687_2
   readline           conda-forge/linux-64::readline-8.0-hf8c457e_0
-  setuptools         conda-forge/linux-64::setuptools-45.1.0-py38_0
+  setuptools         conda-forge/linux-64::setuptools-45.2.0-py38_0
   sqlite             conda-forge/linux-64::sqlite-3.30.1-hcee41ef_0
   tk                 conda-forge/linux-64::tk-8.6.10-hed695b0_0
   wheel              conda-forge/noarch::wheel-0.34.2-py_1
@@ -107,4 +107,6 @@ You will likely need these python packages:
 ````
 conda install -c conda-forge numpy scipy jupyter matplotlib pandas mdanalysis
 ````
+
+(this will take some time since many packages will be installed).
 
