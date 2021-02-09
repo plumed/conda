@@ -10,7 +10,7 @@ install:
   - source ./conda-ci install
   - source conda-ci install-conda-build
   - export MAKEFLAGS=-j4
-  - export CONDA_LABEL=munster
+  - export CONDA_LABEL=masterclass
 # the conda channel:
   - export CONDA_USER=plumed 
   - if [[ -n $TRAVIS_REPO_SLUG ]] ; then

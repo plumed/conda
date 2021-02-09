@@ -1,4 +1,4 @@
-{% set version = "2018.8" %}
+{% set version = "2019.6" %}
 
 package:
   name: gromacs
@@ -9,7 +9,7 @@ build:
 
 source:
   url: http://ftp.gromacs.org/pub/gromacs/gromacs-{{ version }}.tar.gz
-  md5: 12fe6c41c1ed76ed8227c6d37c465ff4
+  md5: a9c41f5b9b11f738a6e04c2427206e09
 
 requirements:
   build:
