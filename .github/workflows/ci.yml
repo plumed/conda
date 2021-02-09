@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  conda:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-20.04 , macos-10.15]
+    runs-on: ${{ matrix.os }}
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install conda
+      run: |
+        curl -LO https://raw.githubusercontent.com/GiovanniBussi/conda-ci/master/conda-ci
+        source ./conda-ci install
+        source ./conda-ci install-conda-build
+    - name: Build PLUMED
+      run: |
+        source activate base
+        conda-build -c conda-forge gromacs
+    - name: Deploy
+      env:
+        CONDA_UPLOAD_TOKEN: ${{ secrets.CONDA_UPLOAD_TOKEN }}
+      run: |
+        source activate base
+        anaconda -t $CONDA_UPLOAD_TOKEN upload -u plumed -l masterclass $CONDA_PREFIX/conda-bld/*/gromacs*.tar.bz2 --force
