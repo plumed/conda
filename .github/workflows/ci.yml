@@ -18,7 +18,7 @@ jobs:
         curl -LO https://raw.githubusercontent.com/GiovanniBussi/conda-ci/master/conda-ci
         source ./conda-ci install
         source ./conda-ci install-conda-build
-    - name: Build PLUMED
+    - name: Build
       run: |
         source activate base
         conda-build -c conda-forge gromacs
