@@ -33,10 +33,10 @@ jobs:
     - name: Test
       run: |
         conda create --name plumed-masterclass 
-        conda activate plumed-masterclass
+        source activate plumed-masterclass
         conda install -y -c conda-forge plumed py-plumed numpy pandas matplotlib notebook mdtraj mdanalysis git
         conda install -y --strict-channel-priority -c plumed/label/masterclass -c conda-forge gromacs
         cd test
-        gmx mdrun -s topolA.tpr -plumed plumed.dat
+        gmx mdrun -s topolA.tpr -plumed plumed.dat -nsteps 1000
         cat colvar.dat
       
