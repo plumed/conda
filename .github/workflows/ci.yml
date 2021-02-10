@@ -20,6 +20,7 @@ jobs:
         source ./conda-ci install-conda-build
     - name: Build
       run: |
+        export MAKEFLAGS=-j3
         conda create --name build
         source activate build
         conda-build -c conda-forge gromacs
