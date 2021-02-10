@@ -27,7 +27,7 @@ jobs:
       env:
         CONDA_UPLOAD_TOKEN: ${{ secrets.CONDA_UPLOAD_TOKEN }}
       run: |
-        source activate build
+        source activate base # needed to have correct CONDA_PREFIX
         anaconda -t $CONDA_UPLOAD_TOKEN upload -u plumed -l masterclass $CONDA_PREFIX/conda-bld/*/gromacs*.tar.bz2 --force
     - name: Test
       run: |
