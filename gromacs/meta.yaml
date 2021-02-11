@@ -20,6 +20,7 @@ requirements:
     - llvm-openmp  # [osx]
     - python
   host:
+    - {{ mpi }}
     - fftw
     - libhwloc 1.*
     - libblas
@@ -27,6 +28,7 @@ requirements:
     - llvm-openmp  # [osx]
     - plumed
   run:
+    - {{ mpi }}
     - fftw
     - libhwloc 1.*
     - llvm-openmp  # [osx]

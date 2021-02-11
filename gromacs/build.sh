@@ -20,7 +20,7 @@ cd build
 cmake .. \
   $opt \
   -DGMX_DEFAULT_SUFFIX=ON \
-  -DGMX_MPI=OFF \
+  -DGMX_MPI=ON \
   -DGMX_THREAD_MPI=OFF \
   -DGMX_GPU=OFF \
   -DGMX_SIMD=SSE2 \
