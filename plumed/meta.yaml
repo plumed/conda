@@ -26,7 +26,7 @@ requirements:
 # xxd is provided by package vim and used during build
     - vim  # [linux]
   host:
-    - {{ mpi }}
+    - openmpi
     - fftw
     - gsl
     - libblas
@@ -35,7 +35,7 @@ requirements:
     - xdrfile
     - zlib
   run:
-    - {{ mpi }}
+    - openmpi
     - gawk
     - llvm-openmp  # [osx]
 
