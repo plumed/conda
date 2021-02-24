@@ -10,7 +10,8 @@ source:
   sha256: 14450ea566c25ac9bf71fd77bb9c0c95e9038462b5739c73a515be82e2011cd6
 
 build:
-  number: 0
+# switch to number 100 for mpi + dimred version
+  number: 100
   skip: True  # [win]
 # Most programs should link libplumedWrapper.a so that libplumedKernel.so will be loaded
 # with dlopen. There is no need for pinning thus.
