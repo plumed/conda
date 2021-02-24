@@ -36,8 +36,8 @@ requirements:
 
 test:
   commands:
-    - gmx -version
-    - gmx mdrun -h | grep plumed
+    - gmx_mpi -version
+    - gmx_mpi mdrun -h | grep plumed
 
 about:
   home: http://www.gromacs.org/
