@@ -1,0 +1,6 @@
+# vim:ft=plumed
+MOLINFO STRUCTURE=reference.pdb
+phi: TORSION ATOMS=@phi-2
+psi: TORSION ATOMS=@psi-2
+PRINT ARG=phi,psi FILE=colvar.dat STRIDE=100
+
