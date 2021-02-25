@@ -45,5 +45,5 @@ jobs:
         cd test
         gmx_mpi mdrun -s topolA.tpr -plumed plumed.dat -nsteps 1000
         cat colvar.dat
-        mpiexec --oversubscribe -np 3 gmx_mpi mdrun -multidir dir?
+        mpiexec --oversubscribe -np 3 gmx_mpi mdrun -multidir dir? -plumed plumed.dat
         cat dir*/colvar*.dat
