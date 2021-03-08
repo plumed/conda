@@ -27,7 +27,7 @@ export CXX=mpic++
 # --disable-static-patch avoid tests that are only required for static patches
 # --disable-static-archive makes package smaller
 # --enable-asmjit enables bundled asmjit implementation
-./configure --prefix=$PREFIX --disable-python --disable-libsearch --disable-static-patch --disable-static-archive --enable-asmjit --enable-modules=dimred
+./configure --prefix=$PREFIX --disable-python --disable-libsearch --disable-static-patch --disable-static-archive --enable-asmjit --enable-modules=dimred,crystallization
 
 make -j3
 make install
