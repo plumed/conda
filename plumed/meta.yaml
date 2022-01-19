@@ -1,5 +1,5 @@
 {% set name = "plumed" %}
-{% set version = "2.7.0" %}
+{% set version = "2.7.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://github.com/plumed/plumed2/archive/v{{ version }}.tar.gz
-  sha256: 14450ea566c25ac9bf71fd77bb9c0c95e9038462b5739c73a515be82e2011cd6
+  sha256: aa1f6200c2ed351e40ce4391a9590f171532474b30f384feddfab10e36d7e08e
 
 build:
 # switch to number 100 for mpi + dimred version
-  number: 100
+  number: 0
   skip: True  # [win]
 # Most programs should link libplumedWrapper.a so that libplumedKernel.so will be loaded
 # with dlopen. There is no need for pinning thus.
