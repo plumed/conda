@@ -27,6 +27,7 @@ requirements:
 # xxd is provided by package vim and used during build
     - vim  # [linux]
   host:
+    - boost-cpp
     - openmpi
     - fftw
     - gsl
