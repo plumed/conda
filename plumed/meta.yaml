@@ -37,6 +37,8 @@ requirements:
     - xdrfile
     - zlib
   run:
+# for some not clear reason boost-cpp is needed here as well
+    - boost-cpp
     - openmpi
     - gawk
     - llvm-openmp  # [osx]
