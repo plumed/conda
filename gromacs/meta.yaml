@@ -1,4 +1,4 @@
-{% set version = "2019.6" %}
+{% set version = "2020.6" %}
 
 package:
   name: gromacs
@@ -6,11 +6,11 @@ package:
 
 build:
 # switch to number 100 for mpi version
-  number: 100
+  number: 0
 
 source:
   url: http://ftp.gromacs.org/pub/gromacs/gromacs-{{ version }}.tar.gz
-  md5: a9c41f5b9b11f738a6e04c2427206e09
+  sha256: d8bbe57ed3c9925a8cb99ecfe39e217f930bed47d5268a9e42b33da544bdb2ee
 
 requirements:
   build:
