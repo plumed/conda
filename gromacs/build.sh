@@ -15,6 +15,14 @@ else
 fi
 
 $PREFIX/bin/plumed-patch -p --runtime -e gromacs-$PKG_VERSION
+
+# this is to fix a missing header file in gromacs 2020
+{
+  echo "#include <limits>" ;
+  cat src/gromacs/modularsimulator/modularsimulator.h
+} > __tmp__
+mv __tmp__ src/gromacs/modularsimulator/modularsimulator.h
+
 mkdir build
 cd build
 cmake .. \
