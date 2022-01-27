@@ -32,6 +32,7 @@ cmake .. \
   $opt \
   -DGMX_DEFAULT_SUFFIX=ON \
   -DGMX_MPI=ON \
+  -DGMXAPI=OFF \
   -DGMX_THREAD_MPI=OFF \
   -DGMX_GPU=OFF \
   -DGMX_SIMD=SSE2 \
