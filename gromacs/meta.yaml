@@ -6,7 +6,8 @@ package:
 
 build:
 # switch to number 100 for mpi version
-  number: 0
+# 1: rebuild with plumed 2.8
+  number: 1
 
 source:
   url: http://ftp.gromacs.org/pub/gromacs/gromacs-{{ version }}.tar.gz

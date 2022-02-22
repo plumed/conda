@@ -1,5 +1,5 @@
 {% set name = "plumed" %}
-{% set version = "2.7.3" %}
+{% set version = "2.8.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/plumed/plumed2/archive/v{{ version }}.tar.gz
-  sha256: aa1f6200c2ed351e40ce4391a9590f171532474b30f384feddfab10e36d7e08e
+  sha256: 8357eca6f280125037ad4e7c427f96f2af2f60ddfedce1a2e36e1e1cc3bff32b
 
 build:
 # switch to number 100 for mpi + dimred version
@@ -24,8 +24,6 @@ requirements:
     - {{ compiler('cxx') }}
     - llvm-openmp  # [osx]
     - make
-# xxd is provided by package vim and used during build
-    - vim  # [linux]
   host:
     - boost-cpp
     - openmpi
@@ -34,7 +32,6 @@ requirements:
     - libblas
     - liblapack
     - llvm-openmp  # [osx]
-    - xdrfile
     - zlib
   run:
 # for some not clear reason boost-cpp is needed here as well
@@ -48,7 +45,7 @@ test:
     - plumed info --root
     - plumed info --long-version
     - plumed-patch -h
-    - plumed config has external_blas external_lapack fftw gsl xdrfile zlib
+    - plumed config has external_blas external_lapack fftw gsl zlib
     - $PREFIX/lib/plumed/plumed-runtime -h
     - test -f $PREFIX/lib/libplumed$SHLIB_EXT
     - test -f $PREFIX/lib/libplumedWrapper.a
