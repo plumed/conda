@@ -8,7 +8,7 @@ package:
 source:
 #  url: https://github.com/plumed/plumed2/archive/v{{ version }}.tar.gz
 #  sha256: 8357eca6f280125037ad4e7c427f96f2af2f60ddfedce1a2e36e1e1cc3bff32b
-  url: https://github.com/plumed/plumed2.git
+  git_url: https://github.com/plumed/plumed2.git
   git_rev: ddb59d16b21d6afb054fd9f6352f5d290e8575bf
 
 build:
