@@ -24,7 +24,7 @@ jobs:
         conda create --name build
         source activate build
         conda-build -c conda-forge plumed
-#        conda-build -c conda-forge gromacs
+        # conda-build -c conda-forge gromacs
         conda-build -c conda-forge lammps
 #    - name: Deploy
 #      env:
