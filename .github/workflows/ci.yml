@@ -24,26 +24,27 @@ jobs:
         conda create --name build
         source activate build
         conda-build -c conda-forge plumed
-        conda-build -c conda-forge gromacs
-    - name: Deploy
-      env:
-        CONDA_UPLOAD_TOKEN: ${{ secrets.CONDA_UPLOAD_TOKEN }}
-      run: |
-        source activate base # needed to have correct CONDA_PREFIX
-        anaconda -t $CONDA_UPLOAD_TOKEN upload -u plumed -l masterclass-2022 $CONDA_PREFIX/conda-bld/*/plumed*.tar.bz2 --force
-        anaconda -t $CONDA_UPLOAD_TOKEN upload -u plumed -l masterclass-2022 $CONDA_PREFIX/conda-bld/*/gromacs*.tar.bz2 --force
-    - name: Test
-      run: |
-        conda create --name plumed-masterclass 
-        source activate plumed-masterclass
-        conda install -y -c conda-forge plumed py-plumed numpy pandas matplotlib notebook mdtraj mdanalysis git
-        # first install serial gromacs
-        conda install -y --strict-channel-priority -c plumed/label/masterclass  -c conda-forge gromacs
-        # then replace with parallel gromacs and plumed
-        conda install -y --strict-channel-priority -c plumed/label/masterclass-2022 -c conda-forge plumed
-        conda install -y --strict-channel-priority -c plumed/label/masterclass-2022 -c conda-forge gromacs
-        cd test
-        gmx_mpi mdrun -s topolA.tpr -plumed plumed.dat -nsteps 1000
-        cat colvar.dat
-        mpiexec --oversubscribe -np 3 gmx_mpi mdrun -multidir dir? -plumed plumed.dat
-        cat dir*/colvar*.dat
+#        conda-build -c conda-forge gromacs
+        conda-build -c conda-forge lammps
+#    - name: Deploy
+#      env:
+#        CONDA_UPLOAD_TOKEN: ${{ secrets.CONDA_UPLOAD_TOKEN }}
+#      run: |
+#        source activate base # needed to have correct CONDA_PREFIX
+#        anaconda -t $CONDA_UPLOAD_TOKEN upload -u plumed -l masterclass-2022 $CONDA_PREFIX/conda-bld/*/plumed*.tar.bz2 --force
+#        anaconda -t $CONDA_UPLOAD_TOKEN upload -u plumed -l masterclass-2022 $CONDA_PREFIX/conda-bld/*/gromacs*.tar.bz2 --force
+#    - name: Test
+#      run: |
+#        conda create --name plumed-masterclass 
+#        source activate plumed-masterclass
+#        conda install -y -c conda-forge plumed py-plumed numpy pandas matplotlib notebook mdtraj mdanalysis git
+#        # first install serial gromacs
+#        conda install -y --strict-channel-priority -c plumed/label/masterclass  -c conda-forge gromacs
+#        # then replace with parallel gromacs and plumed
+#        conda install -y --strict-channel-priority -c plumed/label/masterclass-2022 -c conda-forge plumed
+#        conda install -y --strict-channel-priority -c plumed/label/masterclass-2022 -c conda-forge gromacs
+#        cd test
+#        gmx_mpi mdrun -s topolA.tpr -plumed plumed.dat -nsteps 1000
+#        cat colvar.dat
+#        mpiexec --oversubscribe -np 3 gmx_mpi mdrun -multidir dir? -plumed plumed.dat
+#        cat dir*/colvar*.dat
