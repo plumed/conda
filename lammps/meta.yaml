@@ -6,8 +6,8 @@ build:
   number: 0
 
 source:
-  url: https://github.com/lammps/lammps/archive/stable_5Jun2019.tar.gz
-  md5: 1762e3fe956fd6243345ffca5e1cad2f
+  url: https://github.com/lammps/lammps/archive/stable_29Sep2021_update3.tar.gz
+  md5: 819641880c851ba84f62d388ee84584a
 
 requirements:
   build:
