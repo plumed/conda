@@ -35,7 +35,7 @@ cmake -DBUILD_MPI=no \
       -DPKG_KSPACE=yes \
       -DPKG_MOLECULE=yes \
       -DPKG_RIGID=yes \
-      -DPKG_USER-PLUMED=yes \
+      -DPKG_PLUMED=yes \
       -DPLUMED_MODE=runtime \
       $opt \
       ../cmake
