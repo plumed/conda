@@ -34,7 +34,7 @@ requirements:
 
 test:
   commands:
-    - lmp -help | grep plumed
+    - lmp -help
 
 about:
   home: http://lammps.sandia.gov
