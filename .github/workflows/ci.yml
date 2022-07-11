@@ -26,11 +26,12 @@ jobs:
         conda-build -c conda-forge plumed
         # conda-build -c conda-forge gromacs
         conda-build -c conda-forge lammps
-#    - name: Deploy
-#      env:
-#        CONDA_UPLOAD_TOKEN: ${{ secrets.CONDA_UPLOAD_TOKEN }}
-#      run: |
-#        source activate base # needed to have correct CONDA_PREFIX
+     - name: Deploy
+       env:
+         CONDA_UPLOAD_TOKEN: ${{ secrets.CONDA_UPLOAD_TOKEN }}
+       run: |
+         source activate base # needed to have correct CONDA_PREFIX
+         anaconda -t $CONDA_UPLOAD_TOKEN upload -u plumed -l masterclass-test-2022 $CONDA_PREFIX/conda-bld/*/lammps*.tar.bz2 --force
 #        anaconda -t $CONDA_UPLOAD_TOKEN upload -u plumed -l masterclass-2022 $CONDA_PREFIX/conda-bld/*/plumed*.tar.bz2 --force
 #        anaconda -t $CONDA_UPLOAD_TOKEN upload -u plumed -l masterclass-2022 $CONDA_PREFIX/conda-bld/*/gromacs*.tar.bz2 --force
 #    - name: Test

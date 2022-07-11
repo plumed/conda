@@ -1,6 +1,6 @@
 package:
   name: lammps
-  version: 2019.6.5
+  version: 2021.09.29.3
 
 build:
   number: 0
