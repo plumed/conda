@@ -1,13 +1,13 @@
 package:
   name: lammps
-  version: 2021.09.29.3
+  version: 2022.06.23
 
 build:
   number: 0
 
 source:
-  url: https://github.com/lammps/lammps/archive/stable_29Sep2021_update3.tar.gz
-  md5: 819641880c851ba84f62d388ee84584a
+  url: https://github.com/lammps/lammps/archive/refs/tags/stable_23Jun2022.tar.gz
+  md5: 1f7fc1b875fc7b3030856a0676911189
 
 requirements:
   build:

@@ -5,6 +5,10 @@ if [[ $(uname) == Darwin ]]; then
   export SDKROOT="${CONDA_BUILD_SYSROOT}"
 fi
 
+# remove check on plumed version
+sed "s/api_version *> *[0-9][0-9]*/false/" src/PLUMED/fix_plumed.cpp > src/PLUMED/fix_plumed.cpp.fix
+mv src/PLUMED/fix_plumed.cpp.fix src/PLUMED/fix_plumed.cpp
+
 
 make -C src lib-plumed args="-p $PREFIX -m runtime"
 
