@@ -10,11 +10,9 @@ sed "s/api_version *> *[0-9][0-9]*/false/" src/PLUMED/fix_plumed.cpp > src/PLUME
 mv src/PLUMED/fix_plumed.cpp.fix src/PLUMED/fix_plumed.cpp
 
 
-make -C src lib-plumed args="-p $PREFIX -m runtime"
-
 mkdir build
 cd build
-cmake -DBUILD_MPI=no \
+cmake -DBUILD_MPI=yes \
       -DPKG_MANYBODY=yes \
       -DPKG_KSPACE=yes \
       -DPKG_MOLECULE=yes \

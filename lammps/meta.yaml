@@ -3,7 +3,7 @@ package:
   version: 2022.06.23
 
 build:
-  number: 0
+  number: 1
 
 source:
   url: https://github.com/lammps/lammps/archive/refs/tags/stable_23Jun2022.tar.gz
