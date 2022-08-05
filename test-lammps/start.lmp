@@ -42,6 +42,7 @@ fix             1 all plumed plumedfile plumed.dat outfile plumed.out
 fix             2 all nph iso ${pressure} ${pressure} ${pressureDamp}
 fix             3 all temp/csvr ${temperature} ${temperature} ${tempDamp} ${seed}
 fix		4 all momentum 10000 linear 1 1 1 angular
+velocity        all create ${temperature} ${seed} dist gaussian
 
 run             1000
 
