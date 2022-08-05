@@ -1,0 +1,48 @@
+echo both
+
+variable	temperature equal 400.
+variable	pressure equal 1.
+variable	tempDamp equal 0.1 # approx 0.1 ps
+variable	pressureDamp equal 1.0
+variable	seed equal 74581
+variable 	mass equal 22.98977
+variable	thermo_out_freq equal 500
+variable	restart_out_freq equal 500
+variable	dump_out_freq equal 500
+
+timer 		timeout 23:50:00 every 1000
+units		metal
+lattice 	bcc 4.228
+region          box block 0 5 0 5 0 5
+create_box      1 box
+create_atoms    1 random 250 ${seed} box
+mass            1 ${mass}
+neigh_modify    delay 10 every 1
+pair_style 	eam/fs
+pair_coeff 	* * Na_MendelevM_2014.eam.fs Na
+timestep	0.002
+thermo          ${thermo_out_freq}
+thermo_style 	custom step temp pe press lx
+restart 	${restart_out_freq} Restart.lmp Restart2.lmp
+
+# Minimize
+
+minimize	1.e-4 1.e-6 100 1000
+
+reset_timestep	0
+
+# Production
+
+dump            myDump all atom ${dump_out_freq} dump.na
+dump            myDcdDump all dcd ${dump_out_freq} out.dcd
+dump_modify	myDump append yes
+dump_modify     myDcdDump append yes
+
+fix             1 all plumed plumedfile plumed.dat outfile plumed.out 
+fix             2 all nph iso ${pressure} ${pressure} ${pressureDamp}
+fix             3 all temp/csvr ${temperature} ${temperature} ${tempDamp} ${seed}
+fix		4 all momentum 10000 linear 1 1 1 angular
+
+run             1000
+
+write_data	data.final
