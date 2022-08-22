@@ -49,3 +49,8 @@ jobs:
         cat colvar.dat
         mpiexec --oversubscribe -np 3 gmx_mpi mdrun -multidir dir? -plumed plumed.dat
         cat dir*/colvar*.dat
+        # install lammps
+        conda install -y --strict-channel-priority -c plumed/label/masterclass-2022 -c conda-forge plumed lammps
+        cd test-lammps
+        mpiexec lmp -in start.lmp
+        cat COLVAR
