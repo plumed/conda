@@ -9,7 +9,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-20.04 , macos-10.15]
+        os: [ubuntu-20.04 , macos-11]
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v2
@@ -39,6 +39,8 @@ jobs:
         conda create --name plumed-masterclass 
         source activate plumed-masterclass
         conda install -y -c conda-forge plumed py-plumed numpy pandas matplotlib notebook mdtraj mdanalysis git
+        # check if python module is working
+        python -c "import plumed; p=plumed.Plumed(); print(p)"
         # first install serial gromacs
         conda install -y --strict-channel-priority -c plumed/label/masterclass  -c conda-forge gromacs
         # then replace with parallel gromacs and plumed
